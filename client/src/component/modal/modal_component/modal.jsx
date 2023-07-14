@@ -11,36 +11,26 @@ const Modal = ({ name, onClose, visible, children }) => {
 
   return (
     <Portal elementId='modal-root'>
-      <ModalOverlay name={name} visible={visible} />
-      <ModalWrapper onClick={onMaskClick} tabIndex={-1} visible={visible}>
-        {children}
-      </ModalWrapper>
+      <ModalOverlay name={name} visible={visible} onClick={onMaskClick}>
+        <ModalWrapper tabIndex={-1} visible={visible}>
+          {children}
+        </ModalWrapper>
+      </ModalOverlay>
     </Portal>
   );
 };
 
 const ModalWrapper = styled.div`
-  box-sizing: border-box;
-  display: ${(props) => (props.visible ? 'block' : 'none')};
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  overflow: auto;
-  outline: 0;
-  top:0;
-}
+  display: flex;
+  align-items: center;
 `;
 
 const ModalOverlay = styled.div`
-  box-sizing: border-box;
-  display: ${(props) => (props.visible ? 'block' : 'none')};
+  display: ${(props) => (props.visible ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
   background: ${(props) => (props.name === 'loading' ? 'white' : 'rgba(77, 77, 77, 0.5)')};
   z-index: 999;
 `;
