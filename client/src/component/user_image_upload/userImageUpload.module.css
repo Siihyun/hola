@@ -20,14 +20,14 @@
   background-color: registerBackground;
   color: white;
   border-radius: 4px;
-  display: inline-block;
   cursor: pointer;
-  text-align: center;
-  padding-top: 4px;
   width: 7.5rem;
   height: 2rem;
   font-weight: 500;
   margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .buttonImageDelete {
