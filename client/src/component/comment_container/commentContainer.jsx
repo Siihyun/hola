@@ -16,6 +16,8 @@ const CommentContainer = ({ id }) => {
 
   // 댓글 등록 버튼
   const onRegisterClick = async (e) => {
+    if (!content) return;
+
     if (userId === undefined) {
       openModal();
       return;
