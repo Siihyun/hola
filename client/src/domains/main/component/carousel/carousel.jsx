@@ -2,7 +2,9 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 import { FirstBanner, InstagramBanner, SecondBanner } from 'component/banner';
+import CommonBanner from 'component/banner/commonBanner';
 
 export const Carousel = () => {
   const settings = {
@@ -27,9 +29,19 @@ export const Carousel = () => {
 
   return (
     <Slider {...settings}>
-      <InstagramBanner />
+      <CommonBanner
+        title='Hola! 공식 인스타그램 OPEN!'
+        subTitle='지금 팔로우하고 다양한 올라 소식을 만나보세요 👋'
+        imgSrc='/images/banner/33.png'
+        link='https://instagram.com/holaworld_official'
+        badgeTitle='NOTICE'
+        bgColor='#ffeae9'
+        badgeBgColor='#fb817f'
+        badgeTextColor='#ffffff'
+      />
+      {/* <InstagramBanner />
       <SecondBanner />
-      <FirstBanner />
+      <FirstBanner /> */}
     </Slider>
   );
 };

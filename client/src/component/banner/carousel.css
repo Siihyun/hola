@@ -1,0 +1,19 @@
+.slick-list {
+  max-width: 1300px;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+
+@media screen and (max-width: 1300px) {
+  .slick-list {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .slick-list {
+    max-width: 670px;
+    margin: 0 auto;
+  }
+}
