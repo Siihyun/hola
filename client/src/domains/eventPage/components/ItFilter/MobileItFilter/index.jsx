@@ -42,11 +42,11 @@ const MobileItFilter = () => {
           }}
         />
         <S.ButtonContainer>
-          {/* <FilterButton
+          <FilterButton
             buttonText={viewMode === IT_FILTER.VIEW.GENERAL ? '📁 리스트뷰' : '🗓️ 캘린더뷰'}
             isSelected
-            onClick={() => handleClick('모집구분')}
-          /> */}
+            onClick={() => handleClick('보기방식')}
+          />
           <FilterButton
             buttonText={
               eventType === IT_FILTER.TYPE.ALL

@@ -2,7 +2,7 @@ import 'react-spring-bottom-sheet/dist/style.css';
 import * as S from './styled';
 import { useDispatch, useSelector } from 'react-redux';
 import FilterContent from './FilterContent';
-import { eventTypeOption, filterSortOption } from 'common/options';
+import { eventTypeOption, filterSortOption, viewOption } from 'common/options';
 import { changeField, initFilterState } from 'store/itFilter';
 
 const onlineOrOfflineOption = [
@@ -14,9 +14,17 @@ const onlineOrOfflineOption = [
 
 const FilterBottomSheet = ({ isOpen, onDismiss, curCategory, setCurCategory }) => {
   const dispatch = useDispatch();
-  const { eventType, onOffLine, sort } = useSelector((state) => state.itFilter);
-  const categories = ['카테고리', '진행방식', '정렬방식'];
+
+  const { eventType, onOffLine, sort, viewMode } = useSelector((state) => state.itFilter);
+  const categories = ['보기방식', '카테고리', '진행방식', '정렬방식'];
   const FilterItem = {
+    보기방식: (
+      <FilterContent
+        options={viewOption}
+        currentValue={viewMode}
+        handleClick={(value) => dispatch(changeField({ key: 'viewMode', value }))}
+      />
+    ),
     카테고리: (
       <FilterContent
         options={eventTypeOption}
