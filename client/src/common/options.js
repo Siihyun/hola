@@ -183,6 +183,11 @@ const eventTypeOption = [
   { value: 'bootcamp', label: '부트캠프' },
 ];
 
+const viewOption = [
+  { value: 'general', label: '리스트뷰' },
+  { value: 'calendar', label: '캘린더뷰' },
+];
+
 export {
   languageList,
   studyOrProjectOption,
@@ -198,4 +203,5 @@ export {
   urlOption,
   filterSortOption,
   eventTypeOption,
+  viewOption,
 };
