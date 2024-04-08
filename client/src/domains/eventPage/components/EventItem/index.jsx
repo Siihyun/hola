@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { makeQueryString } from 'domains/eventPage/utils/makeQueryString';
+import { HolaLogEvent } from 'common/GA';
 
 const EventItem = ({ eventInfo, getNextId, getPrevId }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
@@ -37,10 +38,12 @@ const EventItem = ({ eventInfo, getNextId, getPrevId }) => {
         isSmallImage
         eventInfo={eventInfo}
         onEventClick={() => {
+          HolaLogEvent('select_event', { category: 'listView' });
           if (isMobile) {
             history.push(`/hola-it/${_id}`);
             return;
           }
+
           window.history.replaceState(null, 'modal title', `/hola-it/${_id}`);
           openModal();
         }}
