@@ -45,7 +45,10 @@ const MobileItFilter = () => {
           <FilterButton
             buttonText={viewMode === IT_FILTER.VIEW.GENERAL ? '📁 리스트뷰' : '🗓️ 캘린더뷰'}
             isSelected
-            onClick={() => handleClick('보기방식')}
+            onClick={() => {
+              HolaLogEvent('mobile_filter_it_viewmethod', { category: viewMode });
+              handleClick('보기방식');
+            }}
           />
           <FilterButton
             buttonText={
@@ -54,7 +57,10 @@ const MobileItFilter = () => {
                 : eventTypeOption.find((v) => v.value === eventType).label
             }
             isSelected={eventType !== IT_FILTER.TYPE.ALL}
-            onClick={() => handleClick('카테고리')}
+            onClick={() => {
+              handleClick('카테고리');
+              HolaLogEvent('mobile_tab_event', { category: eventType });
+            }}
           />
           <FilterButton
             buttonText={
@@ -63,12 +69,18 @@ const MobileItFilter = () => {
                 : onlineOrOfflineOption.find((v) => v.value === onOffLine).label
             }
             isSelected={onOffLine !== IT_FILTER.PLACE.ALL}
-            onClick={() => handleClick('진행방식')}
+            onClick={() => {
+              HolaLogEvent('mobile_filter_it_method', { category: onOffLine });
+              handleClick('진행방식');
+            }}
           />
           <FilterButton
             buttonText={filterSortOption.find((v) => v.value === sort).label}
             isSelected={true}
-            onClick={() => handleClick('정렬방식')}
+            onClick={() => {
+              HolaLogEvent('mobile_filter_it_viewmethod', { category: sort });
+              handleClick('정렬방식');
+            }}
           />
         </S.ButtonContainer>
       </S.Container>

@@ -28,6 +28,7 @@ const DesktopItFilter = () => {
               key={idx}
               $isSelected={filterList[filterItem] === filterState.eventType}
               onClick={() => {
+                HolaLogEvent('tab_event', { category: filterList[filterItem] });
                 dispatch(changeField({ key: 'eventType', value: filterList[filterItem] }));
               }}
             >
@@ -48,6 +49,7 @@ const DesktopItFilter = () => {
             onChange={(e) => {
               const { value } = e;
               dispatch(changeField({ key: 'sort', value }));
+              HolaLogEvent('filter_it_viewmethod', { categoey: value });
             }}
           />
           <CommonSelect
@@ -59,6 +61,7 @@ const DesktopItFilter = () => {
             onChange={(e) => {
               const { value } = e;
               dispatch(changeField({ key: 'onOffLine', value }));
+              HolaLogEvent('filter_it_method', { category: value });
             }}
           />
 
@@ -66,6 +69,7 @@ const DesktopItFilter = () => {
             selected={filterState.isLiked}
             onClick={() => {
               dispatch(changeField({ key: 'isLiked', value: !filterState.isLiked }));
+              HolaLogEvent('tab_bookmark');
             }}
           >
             👋 관심이벤트
@@ -73,6 +77,7 @@ const DesktopItFilter = () => {
           <S.SelectItem
             selected={filterState.viewMode === 'calendar'}
             onClick={() => {
+              HolaLogEvent('filter_it_method', { category: filterState.viewMode });
               dispatch(
                 changeField({
                   key: 'viewMode',

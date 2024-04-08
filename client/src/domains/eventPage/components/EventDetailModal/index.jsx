@@ -198,6 +198,8 @@ const EventDetailModal = ({
                   eventInfo={item}
                   isSmallImage
                   onEventClick={() => {
+                    //TODO: ad or organic 반영 필요
+                    HolaLogEvent('select_recommand');
                     window.history.replaceState(null, 'modal title', `/hola-it/${item._id}`);
                     setCurrentId(item._id);
                     scrollRef.current.scrollTo({ top: 0 });

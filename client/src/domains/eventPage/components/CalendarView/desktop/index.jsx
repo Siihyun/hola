@@ -13,6 +13,7 @@ import EventDetailModal from '../../EventDetailModal';
 import { useGetUserLikes } from 'domains/eventPage/hooks/useGetUserLikes';
 import { makeQueryString } from 'domains/eventPage/utils/makeQueryString';
 import { useHistory } from 'react-router-dom';
+import { HolaLogEvent } from 'common/GA';
 
 const DesktopCalendarView = () => {
   const filterState = useSelector((state) => state.itFilter);
@@ -147,6 +148,7 @@ const DesktopCalendarView = () => {
             return (
               <S.Content
                 onClick={() => {
+                  HolaLogEvent('select_event', { category: 'calendarView' });
                   const nextId = eventInfo.event.id.slice(0, -1);
                   openModal();
                   setCurrentId(nextId);
