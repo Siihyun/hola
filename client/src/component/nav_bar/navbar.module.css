@@ -14,6 +14,30 @@ button {
   cursor: pointer;
 }
 
+.navigation {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.navigation a:first-child {
+  margin-right: 20px;
+}
+
+.active {
+  font-weight: bold;
+  color: #3e86f5;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.inActive {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 .loginElementWrapper {
   display: flex;
   gap: 30px;
@@ -71,5 +95,27 @@ button {
   }
   .navbar {
     position: relative;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .navigation a:first-child {
+    margin-right: 10px;
+  }
+
+  .active {
+    font-size: 16px;
+  }
+
+  .inActive {
+    font-size: 16px;
+  }
+
+  .login {
+    font-size: 16px;
   }
 }
