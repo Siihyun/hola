@@ -16,6 +16,7 @@ const Navbar = React.memo(({ isBackBtn }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const history = useHistory();
+  const isHome = !window.location.href.includes('hola-it');
 
   const handleRegister = () => {
     HolaLogEvent('create_newpost_start');
@@ -54,14 +55,35 @@ const Navbar = React.memo(({ isBackBtn }) => {
           }}
         />
       ) : (
-        <a href='/'>
-          <img className={styles.logo} src='/images/logo/new-logo.png' alt='logo' />
-        </a>
+        <div className={styles.navigation}>
+          <a href='/'>
+            <img className={styles.logo} src='/images/logo/new-logo.png' alt='logo' />
+          </a>
+          <div
+            className={isHome ? styles.active : styles.inActive}
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            팀원 모집
+          </div>
+          <div
+            className={!isHome ? styles.active : styles.inActive}
+            onClick={() => {
+              history.push('/hola-it');
+            }}
+          >
+            Hola-IT
+          </div>
+        </div>
       )}
+
       <div className={styles.loginElementWrapper}>
-        <button className={styles.postRegister} onClick={handleRegister}>
-          새 글 쓰기
-        </button>
+        {!window.location.href.includes('hola-it') && (
+          <button className={styles.postRegister} onClick={handleRegister}>
+            새 글 쓰기
+          </button>
+        )}
         {!user.nickName ? (
           <button className={styles.login} onClick={openModal}>
             로그인
