@@ -186,7 +186,7 @@ const EventDetailModal = ({
           <div className={styles.introductionTitle}>소개</div>
           <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
           <div className={styles.warning}>
-            * 행사의 주최는 hola가 아니며 자세한 정보는 신청하기 버튼을 확인하세요
+            * 행사의 주최는 HOLA가 아니며 자세한 정보는 신청하기 버튼을 확인하세요
           </div>
 
           <div className={styles.recommendContentTitle}>📁 추천 콘텐츠</div>
@@ -209,60 +209,7 @@ const EventDetailModal = ({
             ))}
           </div>
         </div>
-        <aside className={styles.tooltip}>
-          <div
-            className={styles.tooltipImgContainer}
-            onClick={(e) => {
-              e.stopPropagation();
 
-              if (userId === undefined) {
-                toast.info('로그인이 필요합니다.');
-                return;
-              }
-              const toastText = liked ? '관심 목록에서 제거했어요!' : '관심 목록에 추가했어요!';
-              setLiked((prev) => !prev);
-
-              mutateFn(_id, {
-                onSuccess: () => {
-                  toast.success(toastText, {
-                    position: 'top-right',
-                    autoClose: 3000,
-                  });
-                },
-                onError: () => {
-                  setLiked((prev) => !prev);
-                  toast.error('잠시 후 다시 시도해주세요', {
-                    position: 'top-right',
-                    autoClose: 3000,
-                  });
-                },
-              });
-            }}
-          >
-            <img
-              className={styles.tooltipImg}
-              alt='북마크'
-              src={
-                liked
-                  ? '/images/event/event-bookmark-filled.png'
-                  : '/images/event/event-bookmark.png'
-              }
-            />
-            <span className={styles.tooltipText}>북마크</span>
-          </div>
-
-          <div className={styles.tooltipImgContainer} onClick={copyAddress}>
-            <img className={styles.tooltipImg} alt='공유' src='/images/event/event-share.png' />
-            <span className={styles.tooltipText}>공유</span>
-          </div>
-          <div
-            className={styles.tooltipImgContainer}
-            onClick={() => scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
-            <img className={styles.tooltipImg} alt='위로' src='/images/event/event-top.png' />
-            <span className={styles.tooltipText}>TOP</span>
-          </div>
-        </aside>
         <button
           className={styles.prev}
           onClick={() => {
