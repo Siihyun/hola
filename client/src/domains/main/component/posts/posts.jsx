@@ -25,10 +25,7 @@ const Posts = React.memo(() => {
   return (
     <>
       {!!renderedPosts?.length ? (
-        <StudyList
-          type={search === '' ? 'organic' : 'search'}
-          studyList={renderedPosts}
-        ></StudyList>
+        <StudyList type={search === '' ? 'organic' : 'search'} studyList={renderedPosts} />
       ) : (
         <EmptyList />
       )}
