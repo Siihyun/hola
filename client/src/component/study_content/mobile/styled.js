@@ -20,6 +20,7 @@ export const Title = styled.h1`
   margin-bottom: 8px;
   text-align: center;
   line-height: 150%;
+  overflow-wrap: break-word;
 `;
 
 export const UserInfo = styled.div`

@@ -17,7 +17,7 @@ const StudyList = ({ studyList, type }) => {
           alt='ad-block'
           onClick={() => {
             mutate({ advertisementId: '661bcde46973aee1931148d3', logType: 'reach' });
-            window.location.href = 'https://bit.ly/4aMLPpL';
+            window.open('https://bit.ly/4aMLPpL');
           }}
         />
       )}
