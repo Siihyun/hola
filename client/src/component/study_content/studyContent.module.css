@@ -138,6 +138,7 @@
   line-height: 126.5%; /* or 48px */
   letter-spacing: -0.005em;
   color: #000000;
+  overflow-wrap: break-word;
 }
 
 .postInfo {
