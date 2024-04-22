@@ -13,7 +13,7 @@ const StudyList = ({ studyList, type }) => {
       {!isMobile && (
         <img
           className={styles.adBlockImg}
-          src='images/banner/ad-block-hanghae.png'
+          src='images/banner/ad-block-hanghae3.png'
           alt='ad-block'
           onClick={() => {
             mutate({ advertisementId: '66252a32670fd6c80488c87c', logType: 'reach' });
