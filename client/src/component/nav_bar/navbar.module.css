@@ -56,8 +56,13 @@ button {
 }
 
 .postRegister {
-  font-weight: 600;
-  font-size: 1.125rem;
+  color: white;
+  background-color: #81e1cf;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 22px;
+  border-radius: 36px;
+  height: 42px;
 }
 
 .user {
@@ -70,6 +75,31 @@ button {
   width: 28px;
   height: 28px;
   cursor: pointer;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.businessQusetion {
+  border: 1px solid #dddddd;
+  color: #333333;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 22px;
+  border-radius: 36px;
+  height: 42px;
+}
+
+.registerEvent {
+  color: white;
+  background-color: #3e86f5;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 22px;
+  border-radius: 36px;
+  height: 42px;
 }
 
 @media screen and (max-width: 575px) {
@@ -117,5 +147,9 @@ button {
 
   .login {
     font-size: 16px;
+  }
+
+  .buttonWrapper {
+    display: none;
   }
 }

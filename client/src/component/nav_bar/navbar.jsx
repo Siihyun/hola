@@ -27,6 +27,16 @@ const Navbar = React.memo(({ isBackBtn }) => {
     history.push('/register');
   };
 
+  const handleBussinessClick = () => {
+    HolaLogEvent('ask_business_question');
+    window.open('https://tally.so/r/w4rWyX');
+  };
+
+  const handleEventRegisterClick = () => {
+    HolaLogEvent('ask_event_register');
+    window.open('https://smore.im/form/vrGiUijIMH');
+  };
+
   useEffect(() => {
     // page refresh 후 accessToken을 갱신합니다.
     if (user.nickName) {
@@ -71,11 +81,21 @@ const Navbar = React.memo(({ isBackBtn }) => {
       )}
 
       <div className={styles.loginElementWrapper}>
-        {!window.location.href.includes('hola-it') && (
-          <button className={styles.postRegister} onClick={handleRegister}>
-            새 글 쓰기
+        <div className={styles.buttonWrapper}>
+          {!window.location.href.includes('hola-it') && (
+            <button className={styles.postRegister} onClick={handleRegister}>
+              팀원 모집하기
+            </button>
+          )}
+          {window.location.href.includes('hola-it') && (
+            <button className={styles.registerEvent} onClick={handleEventRegisterClick}>
+              행사 등록하기
+            </button>
+          )}
+          <button className={styles.businessQusetion} onClick={handleBussinessClick}>
+            비즈니스 문의
           </button>
-        )}
+        </div>
         {!user.nickName ? (
           <button className={styles.login} onClick={openModal}>
             로그인
