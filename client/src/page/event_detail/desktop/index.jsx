@@ -89,13 +89,15 @@ const DetailDesktop = ({ detailData, relativeEvents }) => {
 
         <div className={styles.recommendContentTitle}>📁 추천 콘텐츠</div>
         <div className={styles.recommendContainer}>
-          {relativeEvents?.slice(0, 4).map((item) => (
-            <EventItemView
-              eventInfo={item}
-              onEventClick={() => {
-                history.push(`/hola-it/${item._id}`);
-              }}
-            />
+          {relativeEvents?.slice(0, 4).map((item, key) => (
+            <div key={key} className={styles.eventItemContainer}>
+              <EventItemView
+                eventInfo={item}
+                onEventClick={() => {
+                  history.push(`/hola-it/${item._id}`);
+                }}
+              />
+            </div>
           ))}
         </div>
       </div>
