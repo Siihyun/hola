@@ -2,7 +2,12 @@ import * as S from './styled';
 
 const FilterButton = ({ buttonText, isSelected, onClick }) => {
   return (
-    <S.Button selected={isSelected} onClick={onClick}>
+    <S.Button
+      selected={isSelected}
+      onClick={onClick}
+      // hack: width: fit-content, auto가 min-width가 있을 시 안먹어서 우선 강제로 늘려줌
+      width={buttonText.includes('뷰') ? '110px' : '100px'}
+    >
       <S.Languages>{buttonText}</S.Languages>
       <svg height='16' width='16' viewBox='0 0 20 20' aria-hidden='true' focusable='false'>
         <path

@@ -2,18 +2,16 @@ import styled from '@emotion/styled';
 
 export const Languages = styled.div`
   text-align: left;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
+  white-space: nowrap;
+  overflow: visible;
 `;
 
 export const Button = styled.button`
   justify-content: space-between;
   padding-left: 15px;
   padding-right: 10px;
-  min-width: 100px;
-  height: 30px;
+  min-width: ${({ width }) => width};
+  height: 38px;
   border: ${({ selected }) => (selected ? '1px solid #00b9ae' : '1px solid #E3E3E3')};
   color: ${({ selected }) => (selected ? '#00b9ae' : '#646464')};
   font-weight: 500;
