@@ -185,7 +185,7 @@
   justify-content: flex-end;
   color: #333;
   border-bottom: 2px solid #f2f2f2;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   padding-top: 40px;
 }
 
@@ -208,4 +208,13 @@
   line-height: 126.5%; /* 22.77px */
   letter-spacing: -0.54px;
   margin-top: 25px;
+}
+
+.viewAndLieksWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+  color: #4e4e4e;
+  font-size: 13px;
+  gap: 4px;
 }
