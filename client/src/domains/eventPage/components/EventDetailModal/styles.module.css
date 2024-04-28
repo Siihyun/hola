@@ -214,6 +214,11 @@
   letter-spacing: -0.48px;
 }
 
+.applyButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
 .badgeContainer {
   display: flex;
   gap: 10px;
@@ -238,6 +243,18 @@
   letter-spacing: -0.4px;
   border-radius: 20px;
   background-color: #ffe8e8;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.deadlineEnd {
+  width: fit-content;
+  padding: 4px 10px;
+  color: #595959;
+  font-size: 12px;
+  letter-spacing: -0.4px;
+  border-radius: 20px;
+  background-color: #e8e8e8;
   font-weight: 600;
   line-height: normal;
 }
