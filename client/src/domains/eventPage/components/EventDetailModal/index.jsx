@@ -209,6 +209,25 @@ const EventDetailModal = ({
             ))}
           </div>
         </div>
+        <aside className={styles.tooltip}>
+          <div className={styles.tooltipImgContainer}>
+            <img
+              className={styles.tooltipImg}
+              alt='북마크'
+              src={'/images/event/event-bookmark.png'}
+            />
+            <span className={styles.tooltipText}>북마크</span>
+          </div>
+
+          <div className={styles.tooltipImgContainer}>
+            <img className={styles.tooltipImg} alt='공유' src='/images/event/event-share.png' />
+            <span className={styles.tooltipText}>공유</span>
+          </div>
+          <div className={styles.tooltipImgContainer}>
+            <img className={styles.tooltipImg} alt='위로' src='/images/event/event-top.png' />
+            <span className={styles.tooltipText}>TOP</span>
+          </div>
+        </aside>
 
         <button
           className={styles.prev}
