@@ -122,13 +122,14 @@ const DetailMobile = ({ detailData, relativeEvents }) => {
         <div className={styles.introduceWrapper}>
           <div className={styles.introduce}>소개</div>
           <p className={styles.content} dangerouslySetInnerHTML={{ __html: detailData?.content }} />
-          <div className={styles.warning}>
-            * 행사의 주최는 HOLA가 아니며 자세한 정보는 신청하기 버튼을 확인하세요
+
+          <div className={styles.viewAndLieksWrapper}>
+            <span>👀 조회수 {detailData.views}회</span>
+            <span>👋 북마크 {detailData.totalLikes}개</span>
           </div>
 
-          <div>
-            <span>조회수 2회</span>
-            <span>북마크 2개</span>
+          <div className={styles.warning}>
+            * 행사의 주최는 HOLA가 아니며 자세한 정보는 신청하기 버튼을 확인하세요
           </div>
         </div>
       </section>
