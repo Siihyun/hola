@@ -13,7 +13,7 @@ export const Button = styled.button`
   padding-left: 15px;
   padding-right: 10px;
   min-width: 100px;
-  height: 30px;
+  height: 38px;
   border: ${({ selected }) => (selected ? '1px solid #00b9ae' : '1px solid #E3E3E3')};
   color: ${({ selected }) => (selected ? '#00b9ae' : '#646464')};
   font-weight: 500;
