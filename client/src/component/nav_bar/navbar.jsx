@@ -60,14 +60,6 @@ const Navbar = React.memo(({ isBackBtn }) => {
             <img className={styles.logo} src='/images/logo/new-logo.png' alt='logo' />
           </a>
           <div
-            className={isHome ? styles.active : styles.inActive}
-            onClick={() => {
-              history.push('/');
-            }}
-          >
-            팀원 모집
-          </div>
-          <div
             className={!isHome ? styles.active : styles.inActive}
             onClick={() => {
               history.push('/hola-it');
