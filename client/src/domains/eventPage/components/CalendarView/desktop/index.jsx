@@ -55,19 +55,19 @@ const DesktopCalendarView = () => {
   const calendarData =
     renderData
       ?.map((d) => {
-        const { _id, title, startDate, endDate, eventType } = d;
+        const { _id, title, applicationStartDate, applicationEndDate, eventType } = d;
         const startItem = {
           //HACK:: FULL CALENDAR에서 id를 key로 사용해서 index를 붙여줍니다.
           id: _id + '0',
           title,
-          date: format(new Date(startDate), 'yyyy-MM-dd'),
+          date: format(new Date(applicationStartDate), 'yyyy-MM-dd'),
           itemType: 'start',
           eventType,
         };
         const endItem = {
           id: _id + '1',
           title,
-          date: format(new Date(endDate), 'yyyy-MM-dd'),
+          date: format(new Date(applicationEndDate), 'yyyy-MM-dd'),
           itemType: 'end',
           eventType,
         };
@@ -162,8 +162,8 @@ const DesktopCalendarView = () => {
               </S.Content>
             );
           }}
-          eventBackgroundColor='white'
-          eventBorderColor='white'
+          eventBackgroundColor='inherit'
+          eventBorderColor='transparent'
           titleFormat={(date) => `${date.date.year}년 ${date.date.month + 1}월`}
           dayHeaderContent={(date) => {
             const weekList = ['일', '월', '화', '수', '목', '금', '토'];
