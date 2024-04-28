@@ -210,20 +210,55 @@ const EventDetailModal = ({
           </div>
         </div>
         <aside className={styles.tooltip}>
-          <div className={styles.tooltipImgContainer}>
+          <div
+            className={styles.tooltipImgContainer}
+            onClick={(e) => {
+              e.stopPropagation();
+
+              if (userId === undefined) {
+                toast.info('로그인이 필요합니다.');
+                return;
+              }
+              const toastText = liked ? '관심 목록에서 제거했어요!' : '관심 목록에 추가했어요!';
+              setLiked((prev) => !prev);
+
+              mutateFn(_id, {
+                onSuccess: () => {
+                  toast.success(toastText, {
+                    position: 'top-right',
+                    autoClose: 3000,
+                  });
+                },
+                onError: () => {
+                  setLiked((prev) => !prev);
+                  toast.error('잠시 후 다시 시도해주세요', {
+                    position: 'top-right',
+                    autoClose: 3000,
+                  });
+                },
+              });
+            }}
+          >
             <img
               className={styles.tooltipImg}
               alt='북마크'
-              src={'/images/event/event-bookmark.png'}
+              src={
+                liked
+                  ? '/images/event/event-bookmark-filled.png'
+                  : '/images/event/event-bookmark.png'
+              }
             />
             <span className={styles.tooltipText}>북마크</span>
           </div>
 
-          <div className={styles.tooltipImgContainer}>
+          <div className={styles.tooltipImgContainer} onClick={copyAddress}>
             <img className={styles.tooltipImg} alt='공유' src='/images/event/event-share.png' />
             <span className={styles.tooltipText}>공유</span>
           </div>
-          <div className={styles.tooltipImgContainer}>
+          <div
+            className={styles.tooltipImgContainer}
+            onClick={() => scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <img className={styles.tooltipImg} alt='위로' src='/images/event/event-top.png' />
             <span className={styles.tooltipText}>TOP</span>
           </div>
