@@ -117,6 +117,12 @@ const EventDetailModal = ({
 
   return (
     <Modal visible={isOpen} name='eventInfo' onClose={closeModal}>
+      <img
+        onClick={closeModal}
+        src='/images/info/close-button.png'
+        className={styles.closeImage}
+        alt='close-button'
+      />
       <div className={styles.container}>
         <div className={styles.wrapper} ref={scrollRef}>
           <div className={styles.titleContainer}>

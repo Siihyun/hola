@@ -298,3 +298,13 @@
   width: 260px;
   height: auto;
 }
+
+.closeImage {
+  position: absolute;
+  display: block;
+  width: 45px;
+  height: 45px;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
