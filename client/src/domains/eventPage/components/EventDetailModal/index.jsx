@@ -112,7 +112,8 @@ const EventDetailModal = ({
     totalLikes,
   } = detailData;
 
-  const leftDays = differenceInDays(new Date(), new Date(applicationEndDate));
+  const leftDays = differenceInDays(new Date(detailData?.applicationEndDate), new Date());
+  const deadlineMessage = leftDays > 0 ? `🔥 마감 ${leftDays}일 전` : '🔒 지원 마감';
 
   return (
     <Modal visible={isOpen} name='eventInfo' onClose={closeModal}>
@@ -139,11 +140,9 @@ const EventDetailModal = ({
                   >
                     {getBadgeTitle(eventType)}
                   </li>
-                  {leftDays > 0 && (
-                    <li className={styles.deadline}>
-                      🔥 마감 {differenceInDays(new Date(), new Date(applicationEndDate))}일전
-                    </li>
-                  )}
+                  <li className={leftDays > 0 ? styles.deadline : styles.deadlineEnd}>
+                    {deadlineMessage}
+                  </li>
                 </ul>
 
                 <div className={styles.evantInfoWrapper}>
@@ -177,8 +176,9 @@ const EventDetailModal = ({
                     window.open(link, '_blank');
                   }}
                   className={styles.applyButton}
+                  disabled={leftDays < 0}
                 >
-                  신청하기
+                  {leftDays < 0 ? '지원마감' : '신청하기'}
                 </button>
               </div>
             </div>

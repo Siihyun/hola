@@ -22,6 +22,9 @@ const DetailMobile = ({ detailData, relativeEvents }) => {
   const [liked, setLiked] = useState(false);
   const mutateFn = liked ? deleteLikes : addLikes;
 
+  const leftDays = differenceInDays(new Date(detailData?.applicationEndDate), new Date());
+  const deadlineMessage = leftDays > 0 ? `🔥 마감 ${leftDays}일 전` : '🔒 지원 마감';
+
   useEffect(() => {
     setLiked(detailData?.isLiked);
   }, [detailData?.isLiked]);
@@ -82,8 +85,8 @@ const DetailMobile = ({ detailData, relativeEvents }) => {
             >
               {getBadgeTitle(detailData?.eventType)}
             </li>
-            <li className={styles.deadline}>
-              🔥 마감 {differenceInDays(new Date(), new Date(detailData?.applicationEndDate))}일전
+            <li className={leftDays > 0 ? styles.deadline : styles.deadlineEnd}>
+              {deadlineMessage}
             </li>
           </ul>
           <img className={styles.thumbnail} src={detailData?.imageUrl} alt='thumbnail' />
@@ -135,7 +138,7 @@ const DetailMobile = ({ detailData, relativeEvents }) => {
           className={styles.applyButton}
           onClick={() => (window.location.href = detailData?.link)}
         >
-          지원하기
+          {leftDays < 0 ? '지원마감' : '신청하기'}
         </button>
         <button className={styles.shareButton} onClick={handleShareClick}>
           공유하기
