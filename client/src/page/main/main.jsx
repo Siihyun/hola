@@ -13,7 +13,7 @@ const Main = () => {
 
   useEffect(() => {
     if (window.innerWidth < 767) return;
-    mutate({ advertisementId: '661bcde46973aee1931148d3', logType: 'impression' });
+    mutate({ advertisementId: '664b61d9f0265e00139fba51', logType: 'impression' });
   }, []);
 
   return (

@@ -13,11 +13,11 @@ const StudyList = ({ studyList, type }) => {
       {!isMobile && (
         <img
           className={styles.adBlockImg}
-          src='images/banner/ad-block-tdd.png'
+          src='images/banner/hanghae-0520.png'
           alt='ad-block'
           onClick={() => {
-            mutate({ advertisementId: '661bcde46973aee1931148d3', logType: 'reach' });
-            window.open('https://bit.ly/4aMLPpL');
+            mutate({ advertisementId: '664b61d9f0265e00139fba51', logType: 'reach' });
+            window.open('https://bit.ly/3KbOOgl');
           }}
         />
       )}
