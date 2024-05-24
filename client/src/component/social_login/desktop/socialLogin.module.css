@@ -1,0 +1,44 @@
+.wrapper {
+  background: white;
+  width: 520px;
+  height: 580px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 0 8px 8px;
+}
+
+.loginTitle {
+  margin: 20px 0;
+}
+
+.loginWrapper {
+  margin-top: 4rem;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.descriptionMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .loginWrapper {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 1.5rem;
+  }
+  .loginTitle {
+    font-size: 1.5rem;
+  }
+
+  .descriptionMobile {
+    margin-top: 4rem;
+    display: block;
+    color: rgb(134, 142, 150);
+    font-weight: 500;
+  }
+}

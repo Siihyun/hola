@@ -52,7 +52,7 @@ const SocialLoginContainer = ({ handleClose }) => {
       kakaoOnSuccess={kakaoOnSuccess}
       kakaoOnFailure={kakaoOnFailure}
       kakaoClientId={kakaoClientId}
-    ></SocialLogin>
+    />
   );
 };
 

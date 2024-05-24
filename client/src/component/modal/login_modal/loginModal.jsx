@@ -6,6 +6,7 @@ import SetNicknameContainer from 'component/set_nickname_container/setNicknameCo
 import SetInterestContainer from 'component/set_interest_container/setInterestContainer';
 import SignupEnd from 'component/signup_end/signupEnd';
 import SetLanguage from 'component/set_language/setLanguage';
+import SocialLogin from 'component/social_login/socialLogin';
 /* 
 
 LoginModal Component
@@ -29,8 +30,6 @@ const LoginModal = ({ handleClose }) => {
   const loginStep = useSelector((state) => state.loginStep.currentStep);
   const renderByLoginStep = (loginStep) => {
     switch (loginStep) {
-      case SOCIAL_LOGIN:
-        return <SocialLoginContainer handleClose={handleClose} />;
       case SET_NICKNAME:
         return <SetNicknameContainer />;
       case SET_INTEREST:
@@ -44,26 +43,31 @@ const LoginModal = ({ handleClose }) => {
     }
   };
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.modalHeader}>
-        <img className={styles.logo} src='/images/logo/hola_logo_y.png' alt='welcome'></img>
-        <div className={styles.exitWrapper} onClick={handleClose}>
-          <svg
-            stroke='currentColor'
-            fill='currentColor'
-            strokeWidth='0'
-            viewBox='0 0 24 24'
-            tabIndex='1'
-            height='1em'
-            width='1em'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'></path>
-          </svg>
+    <>
+      {loginStep === SOCIAL_LOGIN && <SocialLoginContainer handleClose={handleClose} />}
+      {loginStep !== SOCIAL_LOGIN && (
+        <div className={styles.wrapper}>
+          <div className={styles.modalHeader}>
+            <img className={styles.logo} src='/images/logo/hola_logo_y.png' alt='welcome'></img>
+            <div className={styles.exitWrapper} onClick={handleClose}>
+              <svg
+                stroke='currentColor'
+                fill='currentColor'
+                strokeWidth='0'
+                viewBox='0 0 24 24'
+                tabIndex='1'
+                height='1em'
+                width='1em'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'></path>
+              </svg>
+            </div>
+          </div>
+          <div className={styles.modalContent}>{renderByLoginStep(loginStep)}</div>
         </div>
-      </div>
-      <div className={styles.modalContent}>{renderByLoginStep(loginStep)}</div>
-    </div>
+      )}
+    </>
   );
 };
 
