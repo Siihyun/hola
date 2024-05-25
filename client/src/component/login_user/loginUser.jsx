@@ -3,6 +3,7 @@ import styles from './loginUser.module.css';
 import { useSelector } from 'react-redux';
 import DropdownBar from 'component/dropdown_bar/dropdownBar';
 import { useMediaQuery } from 'react-responsive';
+import { defaultImgSrc } from 'common/constant';
 
 /* 
 
@@ -36,7 +37,14 @@ const LoginUser = React.memo(() => {
         <img className={styles.menuIcon} src={'/images/info/menu.png'} alt='menu' />
       ) : (
         <>
-          <img className={styles.userImg} src={user.imageUrl} alt='userImg' />
+          <img
+            className={styles.userImg}
+            src={user.imageUrl}
+            alt='userImg'
+            onError={(event) => {
+              event.currentTarget.src = defaultImgSrc;
+            }}
+          />
           <svg
             strokeWidth='0'
             viewBox='0 0 24 24'
@@ -44,7 +52,7 @@ const LoginUser = React.memo(() => {
             width='16px'
             xmlns='http://www.w3.org/2000/svg'
           >
-            <path d='M7 10l5 5 5-5z'></path>
+            <path d='M7 10l5 5 5-5z' />
           </svg>
         </>
       )}
