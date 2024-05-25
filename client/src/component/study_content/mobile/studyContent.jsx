@@ -112,7 +112,7 @@ const MobileStudyContent = ({ user, id, handleEdit, handleDelete, handleEnd }) =
                 >
                   마감
                 </div> */}
-                <div onClick={handleDelete}>삭제</div>
+                <div onClick={() => handleDelete(id)}>삭제</div>
               </S.Dropdown>
             )}
           </S.DropdownWrapper>
