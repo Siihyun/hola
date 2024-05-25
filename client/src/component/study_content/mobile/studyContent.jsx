@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './styled';
 import { useSelector } from 'react-redux';
 import { formatDate } from 'common/utils';
@@ -15,10 +15,14 @@ import { useQueryClient } from 'react-query';
 import { useLoginModal } from 'hooks/useModal';
 import Modal from 'component/modal/modal_component/modal';
 import LoginModal from 'component/modal/login_modal/loginModal';
+import { defaultImgSrc } from 'common/constant';
 
-const MobileStudyContent = ({ user, id }) => {
+const MobileStudyContent = ({ user, id, handleEdit, handleDelete, handleEnd }) => {
   const { openModal, closeModal, modalVisible } = useLoginModal();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { post } = useSelector((state) => state.read);
+  const [close, setClose] = useState(post.isClosed);
+  const isPostOwner = user.nickName === post.nickname;
   const { shareToKakaoTalk } = useSocialShare();
   const queryClient = useQueryClient();
   const { data, isLoading } = useGetLikesUser(id);
@@ -94,12 +98,36 @@ const MobileStudyContent = ({ user, id }) => {
   return (
     <>
       <S.Container>
+        {isPostOwner && (
+          <S.DropdownWrapper onClick={() => setIsDropdownOpen((prev) => !prev)}>
+            <S.ThreeDots src='/images/info/icon-more.png' />
+            {isDropdownOpen && (
+              <S.Dropdown>
+                <div onClick={handleEdit}>수정</div>
+                {/* <div
+                  onClick={() => {
+                    handleEnd(!close);
+                    setClose((state) => !state);
+                  }}
+                >
+                  마감
+                </div> */}
+                <div onClick={handleDelete}>삭제</div>
+              </S.Dropdown>
+            )}
+          </S.DropdownWrapper>
+        )}
         <S.InfoSection>
           <S.Title>{title}</S.Title>
           {/* 유저 및 시간 정보 */}
           <S.UserInfo>
             <S.UserContainer>
-              <S.UserImg src={defaultPath + imagePath} />
+              <S.UserImg
+                src={defaultPath + imagePath}
+                onError={(event) => {
+                  event.currentTarget.src = defaultImgSrc;
+                }}
+              />
               <S.UserName>{nickname}</S.UserName>
             </S.UserContainer>
             <S.StudyDate>{formatDate(createdAt)}</S.StudyDate>

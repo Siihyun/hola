@@ -4,7 +4,7 @@ import Modal from 'component/modal/modal_component/modal';
 import CancelButton from 'component/cancelButton/cancelButton';
 import { HolaLogEvent } from 'common/GA';
 
-const StudyButtons = ({ history, dispatch, handleEdit, handleDelete, isClosed, handleEnd }) => {
+const StudyButtons = ({ handleEdit, handleDelete, isClosed, handleEnd }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [close, setClose] = useState(isClosed);
   const [isDeleteButton, setIsDeleTeButton] = useState(false);
@@ -43,7 +43,7 @@ const StudyButtons = ({ history, dispatch, handleEdit, handleDelete, isClosed, h
           className={styles.buttons}
           onClick={() => {
             HolaLogEvent('post_edit');
-            handleEdit(dispatch, history);
+            handleEdit();
           }}
         >
           수정

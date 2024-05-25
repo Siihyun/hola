@@ -4,6 +4,39 @@ export const Container = styled.div`
   position: relative;
 `;
 
+export const DropdownWrapper = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const Dropdown = styled.div`
+  width: 50px;
+  height: 60px;
+  background: white;
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #333333;
+`;
+
+export const ThreeDots = styled.img`
+  display: block;
+  width: 24px;
+  height: 24px;
+`;
+
 export const InfoSection = styled.div`
   display: flex;
   flex-direction: column;

@@ -17,6 +17,7 @@ import Navbar from 'component/nav_bar/navbar';
 import LikesAndViews from 'component/likes_and_views/likesAndViews';
 import { useModalState } from 'hooks/useModalCustom';
 import UserDetailModal from 'component/modal/UserDetailModal';
+import { defaultImgSrc } from 'common/constant';
 
 const StudyContent = ({ id }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -41,7 +42,7 @@ const StudyContent = ({ id }) => {
     await studyService.editClose(id, editValue);
   };
 
-  const handleEdit = (dispatch, history) => {
+  const handleEdit = () => {
     dispatch(setPost(read.post));
     history.push('/register');
   };
@@ -55,7 +56,13 @@ const StudyContent = ({ id }) => {
       {isMobile ? (
         <>
           <Navbar isBackBtn={true} />
-          <MobileStudyContent user={user} id={id} />
+          <MobileStudyContent
+            user={user}
+            id={id}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+            handleEnd={handleEnd}
+          />
         </>
       ) : (
         <>
@@ -70,6 +77,9 @@ const StudyContent = ({ id }) => {
                     className={styles.userImg}
                     src={defaultPath + read.post.imagePath}
                     alt='userImg'
+                    onError={(event) => {
+                      event.currentTarget.src = defaultImgSrc;
+                    }}
                   />
                   <div className={styles.userName}>{read.post.nickname}</div>
                 </div>
