@@ -119,6 +119,7 @@ const positionsOption = [
   { value: 'DEVOPS', label: '데브옵스' },
   { value: 'PM', label: 'PM' },
   { value: 'PD', label: '기획자' },
+  { value: 'MK', label: '마케터' },
 ];
 
 const positionsExceptAllOption = [
@@ -130,6 +131,7 @@ const positionsExceptAllOption = [
   { value: 'DEVOPS', label: '데브옵스' },
   { value: 'PM', label: 'PM' },
   { value: 'PD', label: '기획자' },
+  { value: 'MK', label: '마케터' },
 ];
 
 const positionsMap = {
@@ -142,6 +144,7 @@ const positionsMap = {
   DEVOPS: '데브옵스',
   PM: 'PM',
   PD: '기획자',
+  MK: '마케터',
 };
 
 const workExperienceOption = [

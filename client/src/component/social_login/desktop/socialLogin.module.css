@@ -1,0 +1,77 @@
+.logo {
+  width: 126px;
+  height: 32px;
+}
+
+.wrapper {
+  width: 520px;
+  height: 580px;
+  box-shadow: rgb(0 0 0 / 9%) 0px 2px 12px 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: -200%;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  animation: loginAnimation 0.5s ease 0s 1 normal forwards running;
+}
+
+@keyframes loginAnimation {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+.modalContent {
+  width: 520px;
+  height: 580px;
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closeIcon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.loginTitle {
+  font-weight: bold;
+  font-size: 28px;
+  margin-top: 48px;
+  margin-bottom: 22px;
+}
+
+.loginDescription {
+  font-size: 18px;
+  color: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.loginWrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.descriptionMobile {
+  display: none;
+}
