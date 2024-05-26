@@ -1,35 +1,23 @@
 .button {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 10px;
+  width: 344px;
+  height: 64px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   outline: none;
-  transition: all 0.125s ease-in 0s;
-  color: white;
-  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
-  background-color: #fae100;
+  background-color: #ffeb3b;
+  gap: 10px;
+  cursor: pointer;
 }
 
-.buttonWrapper {
-  display: flex;
-  flex-direction: column;
+.loginIconImage {
+  width: 32px;
+  height: 32px;
 }
 
-.loginDescription {
-  margin-top: 10px;
+.loginTitle {
+  font-size: 16px;
   font-weight: bold;
-  font-size: 1rem;
-  line-height: 126.5%;
-  text-align: center;
-  letter-spacing: -0.005em;
-  color: #565656;
-}
-
-@media screen and (max-width: 768px) {
-  .button {
-    width: 20rem;
-    height: 4.5rem;
-  }
+  color: #000000;
 }
