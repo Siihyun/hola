@@ -73,7 +73,7 @@ const customStyles = {
   },
   menuList: (base) => ({
     ...base,
-    overflow: 'hidden',
+    overflow: 'scroll',
   }),
 };
 
