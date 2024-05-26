@@ -11,6 +11,7 @@ const SocialLogin = ({
   kakaoOnSuccess,
   kakaoOnFailure,
   kakaoClientId,
+  handleClose,
 }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
 
@@ -22,6 +23,7 @@ const SocialLogin = ({
       kakaoClientId={kakaoClientId}
       kakaoOnSuccess={kakaoOnSuccess}
       kakaoOnFailure={kakaoOnFailure}
+      handleClose={handleClose}
     />
   ) : (
     <SocialLoginDesktop
@@ -31,6 +33,7 @@ const SocialLogin = ({
       kakaoClientId={kakaoClientId}
       kakaoOnSuccess={kakaoOnSuccess}
       kakaoOnFailure={kakaoOnFailure}
+      handleClose={handleClose}
     />
   );
 };

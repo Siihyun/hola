@@ -44,6 +44,7 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: 16px;
+  cursor: pointer;
 }
 
 .loginTitle {
@@ -72,22 +73,4 @@
 
 .descriptionMobile {
   display: none;
-}
-
-@media (max-width: 768px) {
-  .loginWrapper {
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 1.5rem;
-  }
-  .loginTitle {
-    font-size: 1.5rem;
-  }
-
-  .descriptionMobile {
-    margin-top: 4rem;
-    display: block;
-    color: rgb(134, 142, 150);
-    font-weight: 500;
-  }
 }

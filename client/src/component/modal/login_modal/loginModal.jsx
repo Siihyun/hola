@@ -37,7 +37,7 @@ const LoginModal = ({ handleClose }) => {
       case SET_LANGUAGE:
         return <SetLanguage />;
       case SIGNUP_END:
-        return <SignupEnd handleClose={handleClose}></SignupEnd>;
+        return <SignupEnd handleClose={handleClose} />;
       default:
         return <div></div>;
     }

@@ -14,6 +14,7 @@ const SocialLoginDesktop = ({
   kakaoOnSuccess,
   kakaoOnFailure,
   kakaoClientId,
+  handleClose,
 }) => {
   const handleClick = (method) => {
     HolaLogEvent(`login`, { category: method });
@@ -22,7 +23,7 @@ const SocialLoginDesktop = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.modalContent}>
-        <div className={styles.closeIcon}>
+        <div className={styles.closeIcon} onClick={handleClose}>
           <svg
             width='29'
             height='29'

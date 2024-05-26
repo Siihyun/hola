@@ -10,12 +10,13 @@ const SocialLoginMobile = ({
   kakaoOnSuccess,
   kakaoOnFailure,
   kakaoClientId,
+  handleClose,
 }) => {
   const clientId = process.env.REACT_APP_GITHUB_LOGIN_API_KEY;
   return (
     <div className={styles.wrapper}>
       <div className={styles.upperSection}>
-        <div className={styles.loginIconWrapper}>
+        <div className={styles.loginIconWrapper} onClick={handleClose}>
           <svg
             stroke='currentColor'
             fill='currentColor'
