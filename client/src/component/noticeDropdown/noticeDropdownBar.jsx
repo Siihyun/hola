@@ -1,35 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import userService from 'service/user_service';
-import { setUser } from 'store/user';
 import styles from './noticeDropdownBar.module.css';
 
-export const NoticeDropdownBar = ({ handleClose }) => {
-  const [alarms, setAlarms] = useState([]);
-  const dispatch = useDispatch();
-  const getUnreadAlarmLength = (alarms) => {
-    return alarms.filter((alarm) => alarm.isRead === false).length;
-  };
+export const NoticeDropdownBar = ({ notices, handleClose }) => {
+  const unreadNoticeLength = notices?.filter((notice) => notice.isRead === false).length;
+  const readNotices = notices?.filter((notice) => notice.isRead === true);
+  const unReadNotices = notices?.filter((notice) => notice.isRead !== true);
 
   const handleAlarmClick = async (id) => {
     const result = await userService.readAlarm(id);
-    if (getUnreadAlarmLength(alarms) === 1 && result.status === 200) {
-      dispatch(setUser({ key: 'hasUnreadNotice', value: false }));
-    }
+    // if (getUnreadAlarmLength(alarms) === 1 && result.status === 200) {
+    //   dispatch(setUser({ key: 'hasUnreadNotice', value: false }));
+    // }
   };
-
-  useEffect(() => {
-    const fetchAlarm = async () => {
-      const response = await userService.getUserAlarm();
-      setAlarms(response.data);
-    };
-    fetchAlarm();
-  }, []);
 
   return (
     <div className={styles.noticeWrapper}>
       <div className={styles.noticeHeader}>
-        <span className={styles.title}>읽지 않은 알림 ({getUnreadAlarmLength(alarms)}) </span>
+        <div className={styles.noticeHeaderTitle}>알림</div>
         <div className={styles.exitWrapper} onClick={handleClose}>
           <svg
             stroke='currentColor'
@@ -45,24 +33,83 @@ export const NoticeDropdownBar = ({ handleClose }) => {
           </svg>
         </div>
       </div>
-      {alarms.length === 0 ? (
+      {notices?.length === 0 ? (
         <div className={styles.empty}>알림함이 비어있습니다.</div>
       ) : (
-        <ul className={styles.noticeBody}>
-          {alarms.map((alarm) => (
-            <li
-              key={alarm._id}
-              onClick={() => handleAlarmClick(alarm._id)}
-              className={`${styles.noticeTitleWrapper} ${alarm.isRead && styles.isRead}`}
-            >
-              <a className={styles.noticeLink} href={alarm.href} target='_blank' rel='noreferrer'>
-                <p className={styles.noticeTitle}>{alarm.title}</p>
-                <p className={styles.noticeContent}>{alarm.content}</p>
-                <span className={styles.noticeText}>지금 참여하기</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <>
+          {unReadNotices.length !== 0 && (
+            <ul className={styles.noticeBody}>
+              <div className={styles.unreadNotice}>
+                <span>읽지 않은 알림</span>
+                <span className={styles.unreadNoticeNumber}>{unreadNoticeLength}</span>
+              </div>
+
+              {unReadNotices?.map((alarm) => (
+                <li
+                  key={alarm._id}
+                  onClick={() => handleAlarmClick(alarm._id)}
+                  className={`${styles.noticeTitleWrapper} ${alarm.isRead && styles.isRead}`}
+                >
+                  <a
+                    className={styles.noticeLink}
+                    href={alarm.href}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <div
+                      className={
+                        alarm.noticeType === 'comment' ? styles.commentNotice : styles.holaNotice
+                      }
+                    >
+                      {alarm.icon}
+                    </div>
+                    <div className={styles.infoWrapper}>
+                      <p className={styles.noticeTitle}>{alarm.title}</p>
+                      <p className={styles.noticeContent}>{alarm.content}</p>
+                    </div>
+                    <div className={styles.timeText}>{alarm.timeAgo}</div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+          {readNotices.length !== 0 && (
+            <ul className={styles.noticeBody}>
+              {unReadNotices.length !== 0 && <div className={styles.divider} />}
+              <div className={styles.unreadNotice}>
+                <span>이전 알림</span>
+              </div>
+
+              {readNotices?.map((alarm) => (
+                <li
+                  key={alarm._id}
+                  onClick={() => handleAlarmClick(alarm._id)}
+                  className={`${styles.noticeTitleWrapper} ${alarm.isRead && styles.isRead}`}
+                >
+                  <a
+                    className={styles.noticeLink}
+                    href={alarm.href}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <div
+                      className={
+                        alarm.noticeType === 'comment' ? styles.commentNotice : styles.holaNotice
+                      }
+                    >
+                      {alarm.icon}
+                    </div>
+                    <div className={styles.infoWrapper}>
+                      <p className={styles.noticeTitle}>{alarm.title}</p>
+                      <p className={styles.noticeContent}>{alarm.content}</p>
+                    </div>
+                    <div className={styles.timeText}>{alarm.timeAgo}</div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
       )}
     </div>
   );

@@ -1,11 +1,12 @@
 import { HolaLogEvent } from 'common/GA';
 import { NoticeDropdownBar } from 'component/noticeDropdown';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import styles from './notice.module.css';
+import { useGetNotices } from 'hooks/useGetNotices';
 
 export const Notice = () => {
-  const user = useSelector((state) => state.user);
+  const { data, isLoading } = useGetNotices();
+  const hasUnreadNotice = data?.filter((item) => item.isRead === false).length > 0;
   const [menuVisible, setMenuVisible] = useState(false);
   const menuRef = useRef();
 
@@ -37,14 +38,18 @@ export const Notice = () => {
   return (
     <div className={styles.notificationWrapper} onClick={handleNotificationClick}>
       <div className={styles.imageWrapper}>
-        {user.hasUnreadNotice && <div className={styles.alarmNoticer}></div>}
+        {hasUnreadNotice && (
+          <div className={styles.alarmNoticer}>
+            {!isLoading && data?.filter((item) => item.isRead === false).length}
+          </div>
+        )}
         <img
           className={styles.notification}
           src={'/images/info/notification.svg'}
           alt='notification'
         />
       </div>
-      {menuVisible && <NoticeDropdownBar handleClose={handleNotificationClick} />}
+      {menuVisible && <NoticeDropdownBar notices={data} handleClose={handleNotificationClick} />}
     </div>
   );
 };

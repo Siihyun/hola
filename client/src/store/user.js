@@ -60,7 +60,6 @@ const fetchUserByRefreshToken = createAsyncThunk(
       id: response.data._id,
       image: response.data.image,
       likeLanguages: response.data.likeLanguages,
-      hasUnreadNotice: response.data.hasUnreadNotice,
       accessToken,
     };
 
@@ -85,7 +84,6 @@ const initialState = {
   id: undefined,
   imageUrl: undefined,
   likeLanguages: [],
-  hasUnreadNotice: false,
   accessToken: undefined,
   position: '',
   workExperience: '',
