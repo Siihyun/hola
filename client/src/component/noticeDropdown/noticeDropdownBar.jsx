@@ -48,7 +48,7 @@ export const NoticeDropdownBar = ({ notices, handleClose }) => {
                 <li
                   key={alarm._id}
                   onClick={() => handleAlarmClick(alarm._id)}
-                  className={`${styles.noticeTitleWrapper} ${alarm.isRead && styles.isRead}`}
+                  className={`${styles.noticeTitleWrapper}`}
                 >
                   <a
                     className={styles.noticeLink}
@@ -84,7 +84,7 @@ export const NoticeDropdownBar = ({ notices, handleClose }) => {
                 <li
                   key={alarm._id}
                   onClick={() => handleAlarmClick(alarm._id)}
-                  className={`${styles.noticeTitleWrapper} ${alarm.isRead && styles.isRead}`}
+                  className={`${styles.noticeTitleWrapper}`}
                 >
                   <a
                     className={styles.noticeLink}
