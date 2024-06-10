@@ -5,12 +5,12 @@ import { useMediaQuery } from 'react-responsive';
 import { useEventLog } from 'domains/main/hooks/useEventLog';
 
 const StudyList = ({ studyList, type }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 767px' });
-  const { mutate } = useEventLog();
+  // const isMobile = useMediaQuery({ query: '(max-width: 767px' });
+  // const { mutate } = useEventLog();
 
   return (
     <ul className={styles.studyList}>
-      {!isMobile && (
+      {/* {!isMobile && (
         <img
           className={styles.adBlockImg}
           src='images/banner/hanghae-0520.png'
@@ -20,7 +20,7 @@ const StudyList = ({ studyList, type }) => {
             window.open('https://bit.ly/3KbOOgl');
           }}
         />
-      )}
+      )} */}
       {studyList.map((study) => {
         return <StudyItem study={study} type={type} key={study._id} />;
       })}
