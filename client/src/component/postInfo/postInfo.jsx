@@ -61,8 +61,11 @@ export const PostInfo = () => {
   };
 
   const customStyles = {
-    width: '100%',
-    minHeight: '56px',
+    control: (css) => ({
+      ...css,
+      width: '100%',
+      minHeight: '56px',
+    }),
   };
 
   return (

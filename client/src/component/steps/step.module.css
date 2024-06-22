@@ -1,0 +1,35 @@
+.step {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.activeStep {
+  background-color: #6ed1c0;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inactiveStep {
+  background-color: white;
+  color: white;
+  background-color: #e4e4e4;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stepLine {
+  flex: 1;
+  width: 20px;
+  height: 3px;
+  background-color: #e4e4e4;
+}

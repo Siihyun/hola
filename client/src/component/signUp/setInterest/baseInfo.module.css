@@ -1,0 +1,9 @@
+.container {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.bodyContainer {
+  margin: 30px 0;
+  border: 1px solid blue;
+}

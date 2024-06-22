@@ -13,12 +13,6 @@ export const Selectbox = ({
   id,
   maxValue,
 }) => {
-  const selectStyle = {
-    control: (css) => ({
-      ...css,
-      ...customStyles,
-    }),
-  };
   return (
     <>
       {labelText && (
@@ -28,7 +22,7 @@ export const Selectbox = ({
       )}
       <Select
         isMulti={isMulti}
-        styles={selectStyle}
+        styles={customStyles}
         placeholder={placeholder}
         isOptionDisabled={() => selectValue.length >= maxValue ?? 5}
         name='onoffline'
