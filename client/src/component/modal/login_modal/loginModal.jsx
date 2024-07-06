@@ -9,44 +9,33 @@ import SetLanguage from 'component/set_language/setLanguage';
 import SocialLogin from 'component/social_login/socialLogin';
 import BaseInfo from 'component/signUp/baseInfo/BaseInfo';
 import Steps from 'component/steps/Steps';
-/* 
-
-LoginModal Component
-
-로그인 시도 시 가입 여부에 따라서 가입 된 유저면 모달을 닫고,
-미가입된 유저면 회원가입을 진행합니다.
-
-loginStep에 따라
-true면 <SocialLogin>, false면 <SignUp>
-component를 rendering 합니다.
-
-*/
+import CurrentStatus from 'component/signUp/currentStatus/CurrentStatus';
+import SetInterest from 'component/signUp/setInterest/SetInterest';
+import SetNickname from 'component/signUp/setNickname/SetNickname';
 
 const SOCIAL_LOGIN = 1;
-const SET_NICKNAME = 2;
-const SET_INTEREST = 3;
-const SET_LANGUAGE = 4;
-
-const SIGNUP_BASE_INFO = 1;
-const SIGNUP_CURRENT_STATUS = 2;
-const SIGNUP_INTEREST = 3;
-const SIGNUP_NICKNAME = 4;
-const SIGNUP_END = 5;
+const SIGNUP_BASE_INFO = 2;
+const SIGNUP_CURRENT_STATUS = 3;
+const SIGNUP_INTEREST = 4;
+const SIGNUP_NICKNAME = 5;
+const SIGNUP_END = 6;
 
 const LoginModal = ({ handleClose }) => {
   const loginStep = useSelector((state) => state.loginStep.currentStep);
   const renderByLoginStep = (loginStep) => {
     switch (loginStep) {
-      case SET_NICKNAME:
+      case SIGNUP_BASE_INFO:
         return <BaseInfo />;
-      case SET_INTEREST:
-        return <SetInterestContainer />;
-      case SET_LANGUAGE:
-        return <SetLanguage />;
+      case SIGNUP_CURRENT_STATUS:
+        return <CurrentStatus />;
+      case SIGNUP_INTEREST:
+        return <SetInterest />;
+      case SIGNUP_NICKNAME:
+        return <SetNickname />;
       case SIGNUP_END:
         return <SignupEnd handleClose={handleClose} />;
       default:
-        return <div></div>;
+        return null;
     }
   };
   return (

@@ -8,6 +8,9 @@ const initialState = {
   likeLanguages: [],
   position: '',
   workExperience: '',
+  isOrganizationOpen: false,
+  organization: '',
+  status: '',
 };
 
 const loginstepSlice = createSlice({
@@ -27,6 +30,18 @@ const loginstepSlice = createSlice({
       ...state,
       [key]: value,
     }),
+    setSignupInterest: (state, { payload }) => {
+      if (state.likeLanguages.includes(payload)) {
+        return {
+          ...state,
+          likeLanguages: state.likeLanguages.filter((item) => item !== payload),
+        };
+      }
+      return {
+        ...state,
+        likeLanguages: [...state.likeLanguages, payload],
+      };
+    },
     setModalVisible: (state, action) => ({
       ...state,
       modalVisible: action.payload,
@@ -34,6 +49,12 @@ const loginstepSlice = createSlice({
   },
 });
 
-export const { nextStep, previousStep, clearStep, setSignUpUser, setModalVisible } =
-  loginstepSlice.actions;
+export const {
+  nextStep,
+  previousStep,
+  clearStep,
+  setSignUpUser,
+  setModalVisible,
+  setSignupInterest,
+} = loginstepSlice.actions;
 export default loginstepSlice.reducer;

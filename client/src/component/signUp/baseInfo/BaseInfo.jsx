@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './baseInfo.module.css';
 import { Selectbox } from 'component/select';
-import { positionsExceptAllOption } from 'common/options';
+import { positionsExceptAllOption, workExperienceOption } from 'common/options';
+import { useDispatch, useSelector } from 'react-redux';
+import { nextStep, setSignUpUser } from 'store/loginStep';
+import OrginazationRadioGroup from 'component/organizationRadioGroup';
 
 const customStyles = {
   control: (css, state) => ({
@@ -31,6 +34,13 @@ const customStyles = {
 };
 
 const BaseInfo = () => {
+  const dispatch = useDispatch();
+  const loginStep = useSelector((state) => state.loginStep);
+
+  const handleFields = ({ key, value }) => {
+    dispatch(setSignUpUser({ key, value }));
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.bodyContainer}>
@@ -47,12 +57,12 @@ const BaseInfo = () => {
               <div className={styles.likeLanguageWrapper}>
                 <Selectbox
                   customStyles={customStyles}
-                  options={positionsExceptAllOption}
-                  selectValue={''}
-                  setSelectValue={''}
+                  options={workExperienceOption}
+                  selectValue={loginStep.workExperience}
+                  setSelectValue={handleFields}
                   maxValue={3}
                   placeholder='경력 선택'
-                  id='position'
+                  id='workExperience'
                 />
               </div>
             </div>
@@ -65,8 +75,8 @@ const BaseInfo = () => {
                 <Selectbox
                   customStyles={customStyles}
                   options={positionsExceptAllOption}
-                  selectValue={''}
-                  setSelectValue={''}
+                  selectValue={loginStep.position}
+                  setSelectValue={handleFields}
                   maxValue={3}
                   placeholder='직무 선택'
                   id='position'
@@ -76,13 +86,26 @@ const BaseInfo = () => {
           </div>
 
           <div className={styles.companyContainer}>
-            <h3 className={styles.inputLabel}>소속을 입력해주세요</h3>
-            <input className={styles.input} placeholder='소속 학교 또는 직장 입력'></input>
+            <div className={styles.organizationWrapper}>
+              <h3 className={styles.titleInputLabel}>소속을 입력해주세요</h3>
+              <OrginazationRadioGroup
+                value={loginStep.isOrganizationOpen}
+                onChange={(value) => handleFields({ key: 'isOrganizationOpen', value })}
+              />
+            </div>
+            <input
+              className={styles.input}
+              value={loginStep.organization}
+              placeholder='소속 학교 또는 직장 입력'
+              onChange={(e) => handleFields({ key: 'organization', value: e.target.value })}
+            />
           </div>
         </div>
       </div>
 
-      <button className={styles.buttonNext}>다음</button>
+      <button className={styles.buttonNext} onClick={() => dispatch(nextStep())}>
+        다음
+      </button>
     </div>
   );
 };

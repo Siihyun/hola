@@ -66,3 +66,15 @@
   background-color: #e4e4e4;
   cursor: not-allowed;
 }
+
+.organizationWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.titleInputLabel {
+  color: #333333;
+  font-size: 18px;
+}
