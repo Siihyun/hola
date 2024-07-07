@@ -49,6 +49,7 @@ const LoginModal = ({ handleClose }) => {
               onClick={() => dispatch(previousStep())}
             />
             <svg
+              className={styles.exit}
               onClick={handleClose}
               stroke='currentColor'
               fill='currentColor'
