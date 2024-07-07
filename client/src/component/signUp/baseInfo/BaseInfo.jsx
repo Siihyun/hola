@@ -5,6 +5,7 @@ import { positionsExceptAllOption, workExperienceOption } from 'common/options';
 import { useDispatch, useSelector } from 'react-redux';
 import { nextStep, setSignUpUser } from 'store/loginStep';
 import OrginazationRadioGroup from 'component/organizationRadioGroup';
+import { toast } from 'react-toastify';
 
 const customStyles = {
   control: (css, state) => ({
@@ -39,6 +40,26 @@ const BaseInfo = () => {
 
   const handleFields = ({ key, value }) => {
     dispatch(setSignUpUser({ key, value }));
+  };
+
+  const onNextStep = () => {
+    if (!loginStep.workExperience) {
+      toast.info('경력을 선택해주세요.', {
+        position: 'top-right',
+        autoClose: 3000,
+      });
+      return;
+    }
+
+    if (!loginStep.position) {
+      toast.info('직무를 선택해주세요.', {
+        position: 'top-right',
+        autoClose: 3000,
+      });
+      return;
+    }
+
+    dispatch(nextStep());
   };
 
   return (
@@ -103,7 +124,7 @@ const BaseInfo = () => {
         </div>
       </div>
 
-      <button className={styles.buttonNext} onClick={() => dispatch(nextStep())}>
+      <button className={styles.buttonNext} onClick={onNextStep}>
         다음
       </button>
     </div>

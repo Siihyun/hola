@@ -8,7 +8,7 @@ const Steps = ({ totalStep, currentStep }) => {
         <>
           <div
             key={index}
-            className={index === currentStep ? styles.activeStep : styles.inactiveStep}
+            className={index + 1 === currentStep ? styles.activeStep : styles.inactiveStep}
           >
             {index + 1}
           </div>

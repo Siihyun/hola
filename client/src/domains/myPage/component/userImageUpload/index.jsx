@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './style.module.css';
+import { defaultImgSrc } from 'common/constant';
 
 const UserImageUpload = ({ imageUrl, imageFile, handleImageChange }) => {
   const imageSrc = `https://hola-post-image.s3.ap-northeast-2.amazonaws.com/${imageUrl}`;
@@ -31,6 +32,9 @@ const UserImageUpload = ({ imageUrl, imageFile, handleImageChange }) => {
           className={styles.userImg}
           src={imageFile ? makeBlobUrl(imageFile) : imageSrc}
           alt='user avatar'
+          onError={(event) => {
+            event.currentTarget.src = defaultImgSrc;
+          }}
         />
         <img
           className={styles.profileEditBtn}

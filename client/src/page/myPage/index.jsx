@@ -1,7 +1,7 @@
 import {
-  languageList,
   positionsExceptAllOption,
   urlOption,
+  userSkillOption,
   workExperienceOption,
 } from 'common/options';
 import Navbar from 'component/nav_bar/navbar';
@@ -42,6 +42,7 @@ const Mypage = () => {
   const { modalVisible, openModal, closeModal } = useModalState();
   const deleteAccount = useCancelId();
   const history = useHistory();
+  const userSkillOptionFlat = Object.values(userSkillOption).flat();
 
   const {
     formState: { isDirty, dirtyFields, errors },
@@ -138,7 +139,7 @@ const Mypage = () => {
       introduce,
       workExperience: fotmatToReactSelect(workExperienceOption, workExperience),
       position: fotmatToReactSelect(positionsExceptAllOption, position),
-      likeLanguages: fotmatToReactSelect(languageList, likeLanguages),
+      likeLanguages: fotmatToReactSelect(userSkillOptionFlat, likeLanguages),
       image,
       urls,
     };
@@ -244,7 +245,7 @@ const Mypage = () => {
 
           <S.Group>
             <S.FormItemTitle>
-              관심스택 <S.RequiredDot>*</S.RequiredDot>
+              관심분야 <S.RequiredDot>*</S.RequiredDot>
             </S.FormItemTitle>
             <Controller
               name='likeLanguages'
@@ -259,7 +260,7 @@ const Mypage = () => {
                       minHeight: '48px',
                     })}
                     {...field}
-                    options={languageList}
+                    options={userSkillOptionFlat}
                   />
                 );
               }}

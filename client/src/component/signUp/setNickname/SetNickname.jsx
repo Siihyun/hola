@@ -1,14 +1,16 @@
 import React from 'react';
 import styles from './setNickname.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { nextStep, setSignUpUser } from 'store/loginStep';
+import { setSignUpUser } from 'store/loginStep';
 import { toast } from 'react-toastify';
 import userService from 'service/user_service';
 import { HolaLogEvent } from 'common/GA';
 import { addUserNickName } from 'store/user';
+import { useLoginModal } from 'hooks/useModal';
 
 const SetNickname = () => {
   const dispatch = useDispatch();
+  const { closeModal } = useLoginModal();
   const {
     nickName,
     id,
@@ -62,7 +64,7 @@ const SetNickname = () => {
         workExperience: workExperience.value,
       }),
     );
-    dispatch(nextStep());
+    closeModal();
   };
 
   const handleFields = ({ key, value }) => {

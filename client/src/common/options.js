@@ -231,7 +231,6 @@ const userSkillOption = {
     { value: 'aws', label: 'AWS' },
     { value: 'kubernetes', label: 'Kubernetes' },
     { value: 'git', label: 'Git' },
-    { value: 'figma', label: 'Figma' },
     { value: 'docker', label: 'Docker' },
   ],
   기획: [
@@ -248,6 +247,7 @@ const userSkillOption = {
     { value: 'grhde', label: '그래픽 디자인' },
     { value: 'brdde', label: '브랜드 디자인' },
     { value: 'prtde', label: '제품 디자인' },
+    { value: 'figma', label: 'Figma' },
     { value: 'photoshop', label: 'Photoshop' },
     { value: 'illustrator', label: 'Illustrator' },
     { value: 'XD', label: 'XD' },
