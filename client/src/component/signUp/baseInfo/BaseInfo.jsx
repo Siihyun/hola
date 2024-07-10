@@ -110,15 +110,15 @@ const BaseInfo = () => {
             <div className={styles.organizationWrapper}>
               <h3 className={styles.titleInputLabel}>소속을 입력해주세요</h3>
               <OrginazationRadioGroup
-                value={loginStep.isOrganizationOpen}
-                onChange={(value) => handleFields({ key: 'isOrganizationOpen', value })}
+                value={loginStep.organizationIsOpen}
+                onChange={(value) => handleFields({ key: 'organizationIsOpen', value })}
               />
             </div>
             <input
               className={styles.input}
-              value={loginStep.organization}
+              value={loginStep.organizationName}
               placeholder='소속 학교 또는 직장 입력'
-              onChange={(e) => handleFields({ key: 'organization', value: e.target.value })}
+              onChange={(e) => handleFields({ key: 'organizationName', value: e.target.value })}
             />
           </div>
         </div>

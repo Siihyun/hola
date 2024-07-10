@@ -9,8 +9,8 @@ const initialState = {
   position: '',
   workExperience: '',
   isOrganizationOpen: false,
-  organization: '',
-  status: '',
+  organizationName: '',
+  status: [],
 };
 
 const loginstepSlice = createSlice({
@@ -42,6 +42,18 @@ const loginstepSlice = createSlice({
         likeLanguages: [...state.likeLanguages, payload],
       };
     },
+    setSignUpFieldArray: (state, { payload: { key, value } }) => {
+      if (state[key].includes(value)) {
+        return {
+          ...state,
+          [key]: state[key].filter((item) => item !== value),
+        };
+      }
+      return {
+        ...state,
+        [key]: [...state[key], value],
+      };
+    },
     setModalVisible: (state, action) => ({
       ...state,
       modalVisible: action.payload,
@@ -56,5 +68,6 @@ export const {
   setSignUpUser,
   setModalVisible,
   setSignupInterest,
+  setSignUpFieldArray,
 } = loginstepSlice.actions;
 export default loginstepSlice.reducer;

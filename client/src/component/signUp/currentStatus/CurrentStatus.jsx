@@ -1,16 +1,15 @@
 import React from 'react';
 import styles from './currentStatus.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { nextStep, setSignUpUser } from 'store/loginStep';
+import { nextStep, setSignUpFieldArray } from 'store/loginStep';
 import { userStatusOption } from 'common/options';
 
 const CurrentStatus = () => {
   const dispatch = useDispatch();
   const { status } = useSelector((state) => state.loginStep);
-  console.log(status);
 
   const handleFields = ({ key, value }) => {
-    dispatch(setSignUpUser({ key, value }));
+    dispatch(setSignUpFieldArray({ key, value }));
   };
 
   return (
@@ -22,7 +21,7 @@ const CurrentStatus = () => {
           {userStatusOption.map((option) => (
             <li
               className={`${styles.optionItem} ${
-                status === option.value ? styles.optionItemSelected : ''
+                status.includes(option.value) ? styles.optionItemSelected : ''
               }`}
               onClick={() => handleFields({ key: 'status', value: option.value })}
             >
