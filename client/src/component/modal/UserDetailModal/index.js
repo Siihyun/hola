@@ -1,6 +1,8 @@
 import { useGetUserInfo } from 'domains/myPage/hooks/useGetUserInfo';
 import Modal from '../modal_component/modal';
 import styles from './userDetailModal.module.css';
+import { userSkillOption } from 'common/options';
+import { defaultImgSrc } from 'common/constant';
 
 const getPositionToText = (position) => {
   switch (position) {
@@ -57,6 +59,9 @@ const UserDetailModal = ({ id, isOpen, closeModal }) => {
               className={styles.avatar}
               src={`https://hola-post-image.s3.ap-northeast-2.amazonaws.com/${image}`}
               alt='user avatar'
+              onError={(event) => {
+                event.currentTarget.src = defaultImgSrc;
+              }}
             />
           </div>
         </div>
@@ -79,9 +84,13 @@ const UserDetailModal = ({ id, isOpen, closeModal }) => {
             <div className={styles.languagesText}>관심 스택</div>
             <ul className={styles.likeLanguages}>
               {likeLanguages.map((lang, idx) => (
-                <li key={idx} className={styles.languageItem}>{`${lang
-                  .charAt(0)
-                  .toUpperCase()}${lang.slice(1)}`}</li>
+                <li key={idx} className={styles.languageItem}>
+                  {
+                    Object.values(userSkillOption)
+                      .flat()
+                      .find((t) => t.value === lang).label
+                  }
+                </li>
               ))}
             </ul>
           </div>

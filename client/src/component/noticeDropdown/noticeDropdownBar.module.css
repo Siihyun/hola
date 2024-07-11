@@ -52,6 +52,13 @@
   overflow: hidden;
 }
 
+.noClamp {
+  display: block;
+  white-space: pre-line;
+  word-break: normal;
+  overflow: visible;
+}
+
 .infoWrapper {
   flex: 1;
   display: flex;

@@ -65,7 +65,13 @@ export const NoticeDropdownBar = ({ notices, handleClose }) => {
                     </div>
                     <div className={styles.infoWrapper}>
                       <p className={styles.noticeTitle}>{alarm.title}</p>
-                      <p className={styles.noticeContent}>{alarm.content}</p>
+                      <p
+                        className={`${styles.noticeContent} ${
+                          alarm.noticeType === 'signup' ? styles.noClamp : ''
+                        }`}
+                      >
+                        {alarm.content}
+                      </p>
                     </div>
                     <div className={styles.timeText}>{alarm.timeAgo}</div>
                   </a>

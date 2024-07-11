@@ -148,6 +148,7 @@
 }
 
 .languageItem {
+  white-space: nowrap; /* 텍스트 개행 방지 */
   padding: 5px 10px;
   border-radius: 10px;
   background: #f2f4f8;
