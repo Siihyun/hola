@@ -18,6 +18,10 @@
   align-items: center;
 }
 
+.modalHeaderFlexEnd {
+  justify-content: flex-end;
+}
+
 .leftArrow {
   width: 28px;
   height: 28px;

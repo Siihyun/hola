@@ -41,13 +41,19 @@ const LoginModal = ({ handleClose }) => {
       {loginStep === SOCIAL_LOGIN && <SocialLoginContainer handleClose={handleClose} />}
       {loginStep !== SOCIAL_LOGIN && (
         <div className={styles.wrapper}>
-          <div className={styles.modalHeader}>
-            <img
-              className={styles.leftArrow}
-              src='/images/info/arrowLeft.png'
-              alt='left-arrow'
-              onClick={() => dispatch(previousStep())}
-            />
+          <div
+            className={`${styles.modalHeader} ${
+              loginStep === SIGNUP_END ? styles.modalHeaderFlexEnd : ''
+            }`}
+          >
+            {loginStep !== SIGNUP_END && (
+              <img
+                className={styles.leftArrow}
+                src='/images/info/arrowLeft.png'
+                alt='left-arrow'
+                onClick={() => dispatch(previousStep())}
+              />
+            )}
             <svg
               className={styles.exit}
               onClick={handleClose}
