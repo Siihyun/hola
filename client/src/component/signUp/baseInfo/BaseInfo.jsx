@@ -43,16 +43,16 @@ const BaseInfo = () => {
   };
 
   const onNextStep = () => {
-    if (!loginStep.workExperience) {
-      toast.info('경력을 선택해주세요.', {
+    if (!loginStep.position) {
+      toast.info('직무를 선택해주세요.', {
         position: 'top-right',
         autoClose: 3000,
       });
       return;
     }
 
-    if (!loginStep.position) {
-      toast.info('직무를 선택해주세요.', {
+    if (!loginStep.workExperience) {
+      toast.info('경력을 선택해주세요.', {
         position: 'top-right',
         autoClose: 3000,
       });
@@ -73,23 +73,6 @@ const BaseInfo = () => {
           <div className={styles.selectContainer}>
             <div className={styles.inputWrapper}>
               <h3 className={styles.inputLabel}>
-                경력을 입력해주세요 <span style={{ color: '#EA726F' }}>*</span>
-              </h3>
-              <div className={styles.likeLanguageWrapper}>
-                <Selectbox
-                  customStyles={customStyles}
-                  options={workExperienceOption}
-                  selectValue={loginStep.workExperience}
-                  setSelectValue={handleFields}
-                  maxValue={3}
-                  placeholder='경력 선택'
-                  id='workExperience'
-                />
-              </div>
-            </div>
-
-            <div className={styles.inputWrapper}>
-              <h3 className={styles.inputLabel}>
                 직무를 입력해주세요 <span style={{ color: '#EA726F' }}>*</span>
               </h3>
               <div className={styles.likeLanguageWrapper}>
@@ -101,6 +84,23 @@ const BaseInfo = () => {
                   maxValue={3}
                   placeholder='직무 선택'
                   id='position'
+                />
+              </div>
+            </div>
+
+            <div className={styles.inputWrapper}>
+              <h3 className={styles.inputLabel}>
+                경력을 입력해주세요 <span style={{ color: '#EA726F' }}>*</span>
+              </h3>
+              <div className={styles.likeLanguageWrapper}>
+                <Selectbox
+                  customStyles={customStyles}
+                  options={workExperienceOption}
+                  selectValue={loginStep.workExperience}
+                  setSelectValue={handleFields}
+                  maxValue={3}
+                  placeholder='경력 선택'
+                  id='workExperience'
                 />
               </div>
             </div>

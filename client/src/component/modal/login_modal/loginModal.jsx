@@ -30,8 +30,8 @@ const LoginModal = ({ handleClose }) => {
         return <SetInterest />;
       case SIGNUP_NICKNAME:
         return <SetNickname />;
-      // case SIGNUP_END:
-      //   return <SignupEnd handleClose={handleClose} />;
+      case SIGNUP_END:
+        return <SignupEnd handleClose={handleClose} />;
       default:
         return null;
     }
@@ -65,7 +65,7 @@ const LoginModal = ({ handleClose }) => {
           </div>
 
           <div className={styles.modalContent}>
-            <Steps totalStep={4} currentStep={loginStep} />
+            {loginStep !== SIGNUP_END && <Steps totalStep={4} currentStep={loginStep} />}
             {renderByLoginStep(loginStep)}
           </div>
         </div>

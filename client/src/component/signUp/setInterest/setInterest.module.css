@@ -20,7 +20,7 @@
   gap: 10px;
   width: 100%;
   margin-top: 40px;
-  max-height: 350px;
+  max-height: 360px;
   overflow: scroll;
 }
 
@@ -102,4 +102,22 @@
   display: block;
   width: 28px;
   height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .gridContainer {
+    max-height: calc(100vh - 450px);
+    overflow: scroll;
+  }
+
+  .buttonNext {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    width: calc(100% - 32px);
+  }
 }

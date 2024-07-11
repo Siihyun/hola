@@ -5,18 +5,15 @@ import { HolaLogEvent } from 'common/GA';
 const SignupEnd = ({ handleClose }) => {
   return (
     <>
-      <h1 className={styles.title}>
-        축하드려요! 가입되었습니다.
-        <br />
-        Hola에서 동료를 구해보세요!
-      </h1>
-      <img className={styles.logo} src='/images/logo/hola_logo_y.png' alt='logo' />
+      <h1 className={styles.title}>회원가입 완료</h1>
+      <div className={styles.description}>이제 1만명의 올리와 함께하세요!</div>
+      <img className={styles.image} src='/images/info/sign-up-complete.png' alt='logo' />
       <button
         onClick={() => {
           HolaLogEvent('sign_up_complete', { category: 'complete' });
           handleClose();
         }}
-        className={styles.buttonClose}
+        className={styles.buttonNext}
         name='complete'
       >
         시작하기

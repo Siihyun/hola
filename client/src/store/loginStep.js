@@ -8,7 +8,7 @@ const initialState = {
   likeLanguages: [],
   position: '',
   workExperience: '',
-  isOrganizationOpen: false,
+  organizationIsOpen: false,
   organizationName: '',
   status: [],
 };

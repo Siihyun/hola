@@ -42,3 +42,16 @@
   background-color: #e4e4e4;
   cursor: not-allowed;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .buttonNext {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    width: calc(100% - 32px);
+  }
+}
