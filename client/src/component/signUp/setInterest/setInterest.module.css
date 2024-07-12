@@ -105,12 +105,33 @@
 }
 
 @media screen and (max-width: 768px) {
+  .imgContainer {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+  }
+
+  .categoryImg {
+    display: block;
+    width: 24px;
+    height: auto;
+  }
+
+  .categoryLabel {
+    font-size: 16px;
+    color: #999999;
+  }
+
   .title {
     font-size: 20px;
   }
 
   .gridContainer {
-    max-height: calc(100vh - 450px);
+    max-height: 450px;
     overflow: scroll;
   }
 
@@ -119,5 +140,16 @@
     bottom: 16px;
     left: 16px;
     width: calc(100% - 32px);
+  }
+
+  .gridContainer {
+    max-height: 400px;
+  }
+}
+
+/* for iphone se */
+@media screen and (max-height: 700px) {
+  .gridContainer {
+    max-height: 240px;
   }
 }

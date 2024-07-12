@@ -63,8 +63,9 @@
   }
 
   .gridContainer {
+    margin-top: 20px;
     grid-template-columns: repeat(1, 1fr);
-    max-height: calc(100vh - 300px);
+    max-height: 500px;
     overflow: scroll;
   }
 
@@ -73,5 +74,11 @@
     bottom: 16px;
     left: 16px;
     width: calc(100% - 32px);
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .gridContainer {
+    max-height: 370px;
   }
 }
