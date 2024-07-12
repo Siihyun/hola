@@ -84,6 +84,7 @@ const BaseInfo = () => {
                   maxValue={3}
                   placeholder='직무 선택'
                   id='position'
+                  isSearchable={false}
                 />
               </div>
             </div>

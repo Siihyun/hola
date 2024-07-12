@@ -12,6 +12,7 @@ export const Selectbox = ({
   placeholder,
   id,
   maxValue,
+  isSearchable = true,
 }) => {
   return (
     <>
@@ -32,6 +33,7 @@ export const Selectbox = ({
         onChange={(value) => {
           setSelectValue({ key: id, value: value });
         }}
+        isSearchable={isSearchable}
       />
     </>
   );
