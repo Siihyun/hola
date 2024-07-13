@@ -4,7 +4,7 @@ export const fotmatToReactSelect = (list, datas) => {
   if (Array.isArray(datas)) {
     return datas.map((data) => ({
       value: data,
-      label: list.find((element) => element.value === data).label,
+      label: list.find((element) => element.value === data)?.label,
     }));
-  } else return { value: datas, label: list.find((element) => element.value === datas).label };
+  } else return { value: datas, label: list.find((element) => element.value === datas)?.label };
 };

@@ -329,6 +329,7 @@ const Mypage = () => {
                 });
                 dispatch(clearUser());
                 dispatch(clearStep());
+                closeModal();
                 history.push('/');
               },
             });

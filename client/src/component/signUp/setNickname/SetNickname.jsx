@@ -24,8 +24,8 @@ const SetNickname = () => {
   console.log(nickName);
 
   const onProfileSaveClick = async () => {
-    if (nickName.length > 15) {
-      toast.info('닉네임은 최대 15글자 입니다.', {
+    if (nickName.length > 10) {
+      toast.info('닉네임은 최대 10글자 입니다.', {
         position: 'top-right',
         autoClose: 3000,
       });

@@ -151,6 +151,14 @@
   display: none;
 }
 
+.userName {
+  max-width: 110px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
 @media screen and (max-width: 767px) {
   .studyItem {
     width: 100%;
@@ -168,5 +176,9 @@
 
   .studyItem:hover {
     transform: none;
+  }
+
+  .userName {
+    max-width: unset;
   }
 }
