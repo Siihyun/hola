@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './commentInput.module.css';
+import { defaultImgSrc } from 'common/constant';
 
 const CommentInput = ({ content, setContent, onRegisterClick, count, imageUrl }) => {
   const defaultImage = 'https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG';
@@ -11,7 +12,14 @@ const CommentInput = ({ content, setContent, onRegisterClick, count, imageUrl })
       </div>
 
       <div className={styles.inputContainer}>
-        <img className={styles.profile} src={imageUrl ?? defaultImage} alt='profile' />
+        <img
+          className={styles.profile}
+          src={imageUrl ?? defaultImage}
+          alt='profile'
+          onError={(event) => {
+            event.currentTarget.src = defaultImgSrc;
+          }}
+        />
         <textarea
           className={styles.commentText}
           placeholder='댓글을 입력하세요.'
