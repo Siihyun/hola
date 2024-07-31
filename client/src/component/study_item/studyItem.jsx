@@ -36,6 +36,7 @@ const StudyItem = ({ study, type }) => {
   const history = useHistory();
 
   const handleAvatarClick = (e) => {
+    HolaLogEvent('profile_click', { category: study.title });
     e.preventDefault();
     e.stopPropagation();
     openUserModal();
